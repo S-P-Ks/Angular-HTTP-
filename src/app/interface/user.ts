@@ -7,6 +7,8 @@ export interface User {
   phone: string;
   website: string;
   company: Company;
+  isAdmin?: boolean;
+  pic?: string;
 }
 
 export interface Address {

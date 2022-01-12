@@ -1,15 +1,36 @@
-![HTTP](https://github.com/S-P-Ks/Angular-HTTP-/blob/main/src/assets/HTTP.jpg)
+# HTTP REQUEST in ANGULAR
 
-# HTTP in the ANGULAR
+##### What I learn :
 
-- You need to import the HTTPCLIENTMODULE into the app.module.ts file.
-- Then you need to create a service for providing all the information to the app.
-- Then import the HTTPCLient in the service.
-- Then pass the HTTPCLient module as a parameter into the constructor of the service.
-- You are now ready to make the HTTP request.
-- Need to use the Observable at any request.
+- HTTP Requests :
 
-##Observabels
-[Watch it on Youtube](https://www.youtube.com/watch?v=Tux1nhBPl_w)
+  - GET
+  - PUT
+  - DELETE
+  - PATCH
+  - POST
 
-### HTTP Get Request
+- HTTP HEADERS
+- HTTP Request Parameters
+- HTTP Events
+- HTTP Request Processs
+- HTTP Request Data Type
+- Data Manupulation
+
+  - Using the rxjs
+  - Map
+  - Tap
+  - retry
+  - etc
+  - There are many more to explore
+  - [Link to Explore more](https://rxjs.dev/guide/operators)
+
+- Error Handling
+
+  - CatchError
+  - of
+  - throwError
+  - handleError
+
+- HTTP INTERCEPTOR
+  - Modifying the request going from the Application.

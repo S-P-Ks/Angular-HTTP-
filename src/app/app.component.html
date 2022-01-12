@@ -1,1 +1,23 @@
-<div *ngFor="let User of Users">{{ User.id }} - {{ User.name }}</div>
+<div *ngIf="error == true">Some Error Occured</div>
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">ID</th>
+      <th scope="col">Picture</th>
+      <th scope="col">Name</th>
+      <th scope="col">Username</th>
+      <th scope="col">Email</th>
+      <th scope="col">Website</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let user of Users">
+      <th>{{ user.id }}</th>
+      <th><img [src]="user.pic" height="50" width="50" /></th>
+      <td>{{ user.name }}</td>
+      <td>{{ user.username }}</td>
+      <td>{{ user.email }}</td>
+      <td>{{ user.website }}</td>
+    </tr>
+  </tbody>
+</table>

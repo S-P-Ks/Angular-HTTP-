@@ -11,7 +11,7 @@ export class AppComponent implements OnInit {
   constructor(private userService: UserService) {}
   private post: User = {
     id: 1,
-    name: 'Leanne Graham',
+    name: 'Robert',
     username: 'Bret',
     email: 'Sincere@april.biz',
     address: {
@@ -33,12 +33,19 @@ export class AppComponent implements OnInit {
     },
   };
 
+  private p1 = { id: 1, name: 'Robert', username: 'Bret' };
+
   public Users!: User[];
 
+  public error: boolean | undefined;
+
   ngOnInit(): void {
-    this.onCreateUser();
-    this.onGetUser();
+    // this.onCreateUser();
+    // this.onGetUser();
     this.onGetUsers();
+    // this.onUpdateUser();
+    // this.onGetUser();
+    // this.onPatchUser();
   }
 
   onGetUsers(): void {
@@ -47,7 +54,7 @@ export class AppComponent implements OnInit {
         console.table(response);
         this.Users = response;
       },
-      (err) => console.log(err),
+      (err) => ((this.error = true), this.tooglePrompt()),
       () => console.log('Completed getting the Users')
     );
   }
@@ -55,7 +62,7 @@ export class AppComponent implements OnInit {
   onGetUser(): void {
     this.userService.getUser().subscribe(
       (res) => console.table(res),
-      (err) => console.log(err),
+      (err: Response) => console.log(err),
       () => console.log('Completed getting the User')
     );
   }
@@ -64,7 +71,29 @@ export class AppComponent implements OnInit {
     this.userService.createUser(this.post).subscribe(
       (res) => console.table(res),
       (err) => console.log(err),
+      () => console.log('Completed creating the User')
+    );
+  }
+
+  onUpdateUser(): void {
+    this.userService.updateUser(this.post).subscribe(
+      (res) => console.table(res),
+      (err) => console.log(err),
       () => console.log('Completed updating the User')
     );
+  }
+
+  onPatchUser(): void {
+    this.userService.patchUser(this.p1).subscribe(
+      (res) => console.table(res),
+      (err) => console.log(err),
+      () => console.log('Completed patching the User')
+    );
+  }
+
+  tooglePrompt(): void {
+    setInterval(() => {
+      this.error = false;
+    }, 3000);
   }
 }
